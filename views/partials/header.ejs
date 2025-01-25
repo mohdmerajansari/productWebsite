@@ -1,0 +1,28 @@
+<header class="bg-black shadow-lg">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Mobile menu button -->
+    <div class="flex items-center justify-end sm:hidden py-4">
+      <button type="button" onclick="toggleMenu()" class="text-white hover:bg-gray-700 px-2 py-1 rounded-md">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Navigation links -->
+    <ul id="nav-menu" class="hidden sm:flex flex-col sm:flex-row justify-around items-center h-auto sm:h-16 space-y-2 sm:space-y-0 pb-4 sm:pb-0">
+      <li class="w-full sm:w-auto text-center"><a href="/" class="block <%= currentPage === 'home' ? 'bg-gray-700' : 'hover:bg-gray-700' %> text-white px-4 py-2 rounded-md text-sm font-medium">Home</a></li>
+      <li class="w-full sm:w-auto text-center"><a href="/wishlist" class="block <%= currentPage === 'wishlist' ? 'bg-gray-700' : 'hover:bg-gray-700' %> text-white px-4 py-2 rounded-md text-sm font-medium">Wishlist</a></li>
+      <li class="w-full sm:w-auto text-center"><a href="/cart" class="block <%= currentPage === 'cart' ? 'bg-gray-700' : 'hover:bg-gray-700' %> text-white px-4 py-2 rounded-md text-sm font-medium">Cart</a></li>
+      <li class="w-full sm:w-auto text-center"><a href="/vendor-list" class="block <%= currentPage === 'vendor-list' ? 'bg-gray-700' : 'hover:bg-gray-700' %> text-white px-4 py-2 rounded-md text-sm font-medium">Vendor</a></li>
+      <li class="w-full sm:w-auto text-center"><a href="/add-products" class="block <%= currentPage === 'add-product' ? 'bg-gray-700' : 'hover:bg-gray-700' %> text-white px-4 py-2 rounded-md text-sm font-medium">Add Products</a></li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('nav-menu');
+  menu.classList.toggle('hidden');
+}
+</script></ul>

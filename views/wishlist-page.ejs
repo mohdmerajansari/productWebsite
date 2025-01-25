@@ -1,0 +1,65 @@
+<%- include('./partials/doc') %>
+  </head>
+  <body>
+    <%- include('./partials/header',{currentPage: currentPage}) %>
+    
+  <div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <% wishlistPage.forEach(product => { %>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <img src="/images/<%= product.proPic %>.jpg" alt="<%= product.proName %>" class="w-full p-2 object-cover">
+          <div class="p-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-2"><%= product.proName %></h2>
+            <p class="text-gray-600 mb-2"><i class="fas fa-map-marker-alt mr-2"></i><%= product.proLocation %></p>
+            <div class="flex justify-between items-center">
+              <p class="text-green-600 font-bold">$<%= product.proPrice %></p>
+              <div class="flex items-center">
+                <i class="fas fa-star text-yellow-400"></i>
+                <span class="ml-1 text-gray-600"><%= product.proRating %></span>
+              </div>
+            </div>
+          </div>
+          
+            <div class="p-4 flex flex-col space-y-2">
+              <%- include('./partials/addtocart',{product : product}) %>
+              <form action="/remove-wishlist/<%= product.wid %>" class="w-full" method="POST">
+              <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md transition duration-300">
+                <i class="fas fa-trash-alt mr-2"></i>Remove from wishlist
+              </button>
+              </form>
+            </div>
+
+        </div>
+       
+      <% }) %>
+    </div>
+    <footer class="bg-black text-white mt-12 py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-4">About Us</h3>
+            <p class="text-gray-400">Your trusted source for quality products and exceptional service.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="/" class="text-gray-400 hover:text-white transition">Home</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Connect With Us</h3>
+            <div class="flex space-x-4">
+              <a href="https://www.facebook.com/profile.php?id=61552478974780" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook"></i></a>
+              <a href="https://x.com/PimpAfri" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/persie00u/" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+          <p>&copy; 2025 PimpAFri. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  </body>
+</html>

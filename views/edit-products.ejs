@@ -1,0 +1,42 @@
+<%- include('./partials/doc') %>
+</head>
+<body>
+ <%- include('./partials/header',{currentPage : currentPage}) %>
+  <div class="max-w-md mx-auto mt-8 p-6">
+    <h1 class="text-center text-3xl font-bold mb-8"><%= editing ? 'Edit ' : 'Add ' %>  your product</h1>
+    <form class="space-y-4" action="/<%= editing ? 'edit-products' : 'add-products' %>" method="POST">
+      <input type="hidden" name="id" value="<%= editing ? product.id : '' %>" />
+      <input 
+        class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Product name" 
+        value="<%= editing ? product.proName : '' %>"
+        name="proName" required/>
+      <input 
+        class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Product price" 
+        value="<%= editing ? product.proPrice : '' %>"
+        name="proPrice" required/>
+      <input 
+        class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Location" 
+        value="<%= editing ? product.proLocation : '' %>"
+        name="proLocation" required/> 
+      <input 
+        class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Rating"
+        value="<%= editing ? product.proRating : '' %>"
+        name="proRating" required/>
+      <input 
+        class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Picture URL" 
+        value="<%= editing ? product.proPic : '' %>"
+        name="proPic" required/>
+        <button type="submit" class="w-full bg-gray-900 text-white p-2 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+         <%= editing ? 'Update ' : 'Add ' %>  Product
+        </button>
+    </form>
+   
+  </div>
+  
+</body>
+</html>
