@@ -6,7 +6,7 @@ const wishlist = require('../model/wishlistModel');
 
 exports.getHomes = (req, res, next) => {
 Home.fetchAll().then(([registeredProducts]) => {
-  res.render('../views/home',{registeredProducts : registeredProducts, currentPage : 'home', pageTitle : 'Products Home'})
+  res.render('../views/index',{registeredProducts : registeredProducts, currentPage : 'home', pageTitle : 'Products Home'})
 }).catch(err => {
   console(err)
 })
