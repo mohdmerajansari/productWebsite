@@ -18,6 +18,15 @@ app.use('/', userRouter);
 
 app.use(express.static(path.join(rootDir,'public')));
 
+// Add error handling
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Something broke!' });
+});
+
+
 app.listen(port, () => {
   console.log(`The server is running on http://localhost:${port}`);
 });
+
+module.exports = app;
